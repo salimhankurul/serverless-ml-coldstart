@@ -13,6 +13,7 @@ All changes to the registered methodology (midterm file, 8 November 2026), with 
 | 7 | 2026-11-18 (pilot) | One smoke-test invocation before the pilot run | Check that the package imports on Lambda | Not part of the data set; its REPORT line is in the CloudWatch export |
 | 8 | 2026-11-18 (after pilot) | The AWS Budgets alarm (USD 10 per month, e-mail at 80 % actual and 100 % forecast) described in the midterm as already set was created only now | It had not been created before the pilot | None. Pilot cost ≈ USD 0.0006; the alarm is in place before the factorial |
 | 9 | 2026-11-18 (after pilot) | Decision: ONNX Runtime is used with its default settings, telemetry included | Measures the out-of-the-box stack that practitioners deploy. The warning comes from the read-only file system, and the pilot showed no heavy tail (Init max 1,935 ms vs median 1,809 ms) | Applied identically to all 60 configurations |
+| 10 | 2026-11-18 (before factorial) | Analysis plan for RQ1–RQ2: measurement day added as a block factor in the log-linear model | Runs are spread over ≥5 days; the block controls day-to-day provider variability (suggested in the supervisor's methodology example) | Analysis only; no data of the factorial exist yet |
 
 ## Model provenance
 
