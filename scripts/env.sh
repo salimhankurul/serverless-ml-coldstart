@@ -1,0 +1,10 @@
+# Shared settings for deploy/cleanup scripts. Source this file; do not run it.
+export AWS_PROFILE="${AWS_PROFILE:-personal}"
+export AWS_REGION="${AWS_REGION:-eu-central-1}"
+export AWS_DEFAULT_REGION="$AWS_REGION"
+export AWS_PAGER=""
+PROJECT_TAG_KEY="project"
+PROJECT_TAG_VALUE="citf7001-coldstart"
+NAME_PREFIX="citf7001"
+ACCOUNT_ID="$(aws sts get-caller-identity --query Account --output text)"
+ARTIFACT_BUCKET="${NAME_PREFIX}-coldstart-artifacts-${ACCOUNT_ID}-${AWS_REGION}"

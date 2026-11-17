@@ -1,0 +1,8 @@
+{
+  "region": "eu-central-1",
+  "source": "https://aws.amazon.com/lambda/pricing/",
+  "retrieved": "2026-11-08",
+  "gb_second_usd": {"x86_64": 0.0000166667, "arm64": 0.0000133334},
+  "request_usd_per_million": 0.20,
+  "note": "List prices, first pricing tier; free tier ignored. GB = memory MB / 1024."
+}

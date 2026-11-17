@@ -1,0 +1,7 @@
+# Runtime dependencies packaged into the Lambda function (installed with --no-deps).
+# onnxruntime and tokenizers only need numpy at inference time; their optional
+# dependencies (sympy, protobuf, huggingface_hub, ...) are left out to stay under
+# the 250 MB unzipped limit for zip packages.
+onnxruntime==1.32.0
+tokenizers==0.23.3
+numpy==2.5.5

@@ -1,0 +1,29 @@
+[
+  {
+    "config_id": "m3-x86-zip-512",
+    "architecture": "x86_64",
+    "memory_mb": 512,
+    "n_cold": 30,
+    "n_cold_attempts_without_init": 0,
+    "n_warm": 100,
+    "n_errors": 0,
+    "cold_p50_ms": 1942.8,
+    "cold_p50_ci95_lo": 1936.0549999999998,
+    "cold_p50_ci95_hi": 1956.035,
+    "cold_p95_ms": 2062.537,
+    "init_p50_ms": 1808.8049999999998,
+    "cold_client_p50_ms": 2517.2085,
+    "warm_p50_ms": 62.515,
+    "warm_p95_ms": 97.4365,
+    "warm_p99_ms": 105.76010000000007,
+    "max_memory_used_mb_max": 275.0,
+    "billed_includes_init_share": 1.0,
+    "mean_cost_cold_usd": 1.6378643468333336e-05,
+    "mean_cost_warm_usd": 7.754178175e-07,
+    "meets_T": true,
+    "measured_cost_all_invocations_usd": 0.0005849094507500001,
+    "n_invocations_total": 131,
+    "cost_per_1000_c1_usd": 0.0009314500740083333,
+    "cost_per_1000_c10_usd": 0.0023357403825833337
+  }
+]

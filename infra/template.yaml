@@ -1,0 +1,54 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  CITF7001 cold-start benchmark - one Lambda function (one configuration) per stack.
+  Every resource lives in this stack, including the log group, so deleting the stack
+  removes everything except the artifact bucket (handled by scripts/cleanup.sh).
+
+Parameters:
+  FunctionName:
+    Type: String
+  Architecture:
+    Type: String
+    AllowedValues: [x86_64, arm64]
+  MemorySize:
+    Type: Number
+    AllowedValues: [512, 1024, 1769, 3008, 10240]
+  CodeBucket:
+    Type: String
+  CodeKey:
+    Type: String
+
+Resources:
+  FunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    DeletionPolicy: Delete
+    UpdateReplacePolicy: Delete
+    Properties:
+      LogGroupName: !Sub /aws/lambda/${FunctionName}
+      RetentionInDays: 1
+
+  BenchFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Ref FunctionName
+      Runtime: python3.12
+      Handler: handler.lambda_handler
+      CodeUri:
+        Bucket: !Ref CodeBucket
+        Key: !Ref CodeKey
+      Architectures: [!Ref Architecture]
+      MemorySize: !Ref MemorySize
+      Timeout: 60
+      EphemeralStorage:
+        Size: 512
+      LoggingConfig:
+        LogFormat: Text
+        LogGroup: !Ref FunctionLogGroup
+      Environment:
+        Variables:
+          COLD_TOKEN: initial
+
+Outputs:
+  FunctionName:
+    Value: !Ref BenchFunction
